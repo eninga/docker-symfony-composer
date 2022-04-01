@@ -1,0 +1,34 @@
+services:
+  web:
+    #image: image_name 
+    build:
+      context: .
+    container_name: php
+    ports:
+      - "8080:8000"
+      - "9001:9000"
+
+    depends_on:
+      - "database"
+
+    environment:
+      DATABASE_URL: mysql://root:root@database/$DB_NAME?charset=utf8mb4
+      APP_ENV: dev
+
+    volumes:
+      - ../cebulac:/var/www/cebulac
+      - ./log:/var/log
+      #- ./config_php:/usr/local/etc/php
+
+  database:
+    image: mysql
+    ports: [3306]
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_PASSWORD
+      MYSQL_DATABASE: $DB_NAME
+
+  mailer:
+    image: schickling/mailcatcher
+    ports: [1025, 1080]
