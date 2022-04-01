@@ -10,7 +10,7 @@ RUN set -eux; \
     git \
     nano
 
-WORKDIR /var/www/cebulac
+WORKDIR /var/www
 RUN git config --global user.email "email@test.git" && git config --global user.name "username"
 RUN docker-php-ext-install mysqli opcache pdo_mysql
 EXPOSE 9000
