@@ -10,7 +10,7 @@ RUN set -eux; \
     git \
     nano
 
-WORKDIR /var/www
+WORKDIR /var/www/project_name_dir
 RUN git config --global user.email "email@test.git" && git config --global user.name "username"
 
 RUN docker-php-ext-install pdo mysqli opcache pdo_mysql
