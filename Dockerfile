@@ -12,6 +12,9 @@ RUN set -eux; \
 
 WORKDIR /var/www
 RUN git config --global user.email "email@test.git" && git config --global user.name "username"
-RUN docker-php-ext-install mysqli opcache pdo_mysql
+
+RUN docker-php-ext-install pdo mysqli opcache pdo_mysql
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+
 EXPOSE 9000
 EXPOSE 8000
