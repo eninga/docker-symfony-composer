@@ -1,8 +1,8 @@
 # docker-symfony-composer
-This image ready for dev contains composer, symfony CLI, git and nano, etc.
+This docker compose will give you tools that you need to start php8/Symfony dev: Such as php8, mysql database, composer, symfony CLI, git, nano, etc.
 
 # Launch the containers
-Build the image  `` docker-compose build --pull --no-cache``  
+Build the image  ``docker-compose build --pull --no-cache``  
 Run the containers in detached mode  ``docker-compose up -d``  
 
 Get in the web container shell (php)  ``docker exec -it php bash``
